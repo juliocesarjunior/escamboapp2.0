@@ -11,6 +11,8 @@ gem 'rails-i18n'
 gem 'pg', '~> 0.18.4'
 gem 'devise'
 gem 'devise-i18n'
+gem 'jquery-rails'
+gem 'bootstrap_sb_admin_base_v2'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
