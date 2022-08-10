@@ -9,9 +9,22 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <% flash.each do |nome, mensagem| %>
-    <%= content_tag :div, mensagem, class: nome %>
-  <% end %>
+
+  <% flash.each do |key, value| %>
+    <% if !value.blank? and !value.nil? %>
+      <div class="alert alert-<%= key=='notice' ? 'warning' : key=='alert' ? 'danger' : key %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <% if key=='info' or key=='notice' %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <% elsif key=='danger' %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <% elsif key=='warning' %>
+        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        <% end %>
+        <%= value %>
+      </div>
+    <% end %>
+<% end %>  
 
 <!--   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->
