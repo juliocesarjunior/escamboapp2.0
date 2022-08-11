@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<a class="navbar-brand" href="#">EscamboApp</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -22,6 +22,14 @@
 				</li>
 				<li>
 					<a href="#">Contact</a>
+				</li>
+				<li class="text-align: left">
+					
+				<% if admin_signed_in? %>
+				<%= link_to "dashboard", backoffice_path, class: "" %> 
+				<% else %>
+				<%= link_to "Log In", new_admin_session_path, class: "" %> 
+				<% end -%>
 				</li>
 			</ul>
 		</div>
