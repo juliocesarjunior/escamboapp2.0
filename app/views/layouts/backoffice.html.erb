@@ -3,44 +3,49 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>BackOffice - EscamboApp</title>
+  <title>BackOffice - EscamboApp</title>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
 <body>
-  <% flash.each do |key, value| %>
-    <% if !value.blank? and !value.nil? %>
-      <div class="alert alert-<%= key=='notice' ? 'warning' : key=='alert' ? 'danger' : key %> alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <% if key=='info' or key=='notice' %>
-        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        <% elsif key=='danger' %>
-        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        <% elsif key=='warning' %>
-        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        <% end %>
-        <%= value %>
-      </div>
-    <% end %>
-<% end %>  
 
   <div id="wrapper">
     <%= render "layouts/backoffice_shared/nav" %>
-    <%= yield %>
+  <% flash.each do |key, value| %>
+    <% if !value.blank? and !value.nil? %>
+      <div class="alert-time">
+        <div class="alert alert-<%= key=='notice' ? 'success' : key=='alert' ? 'danger' : key %> alert-dismissable pull-rigth">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <%= value %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+    <div id="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= yield %>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>

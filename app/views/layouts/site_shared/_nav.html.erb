@@ -23,15 +23,18 @@
 				<li>
 					<a href="#">Contact</a>
 				</li>
-				<li class="text-align: left">
-					
-				<% if admin_signed_in? %>
-				<%= link_to "dashboard", backoffice_path, class: "" %> 
-				<% else %>
-				<%= link_to "Log In", new_admin_session_path, class: "" %> 
-				<% end -%>
+				
+			</ul>
+			<ul class="nav navbar-nav pull-right">
+				<li>
+					<% if admin_signed_in? %>
+					<%= link_to "dashboard", backoffice_path, class: "" %> 
+					<% else %>
+					<%= link_to "Log In", new_admin_session_path, class: "" %> 
+					<% end -%>
 				</li>
 			</ul>
+
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>

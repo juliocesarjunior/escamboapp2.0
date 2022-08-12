@@ -2,3 +2,15 @@
  *= require font-awesome
  *= require bootstrap_sb_admin_base_v2
 */
+
+@keyframes hide {
+  from { opacity: 1 }
+  to   { opacity: 0 }
+}
+.alert-time{
+  position: absolute;
+  z-index: 1000;
+  top:60px;
+  right:10px;
+  animation: hide 5s 5s forwards
+}
