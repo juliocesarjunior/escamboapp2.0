@@ -28,3 +28,21 @@ end
 puts "CATEGORIAS CADASTRADOS COM SUCESSO!"
 
 ############### FIM ###############
+
+############### ADMIN ###############
+
+puts "Cadastrando o Administrador Padrão..."
+
+
+Admin.create(
+  # name: "Administrador Geral",
+  email: "admin@admin.com", 
+  password: "1234567890", 
+  password_confirmation: "1234567890",
+  # role: 0
+  )
+
+
+puts "ADMINISTRADOR CADASTRADO COM SUCESSO!"
+
+############### FIM ###############

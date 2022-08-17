@@ -16,6 +16,7 @@ gem 'bootstrap_sb_admin_base_v2'
 
 source "https://rails-assets.org" do
   gem "rails-assets-bootstrap"
+  gem 'rails-assets-bootbox'
 end
 
 # Use Puma as the app server
@@ -59,6 +60,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do
