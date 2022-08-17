@@ -29,20 +29,55 @@ puts "CATEGORIAS CADASTRADOS COM SUCESSO!"
 
 ############### FIM ###############
 
+############### Roles ###############
+
+puts "Cadastrando o ROLES Padrão..."
+
+
+roles = [ "SuperAdministrador" ,
+               "Administrador"  ]
+
+roles.each do |role|
+  Role.find_or_create_by(name: role)
+end
+
+puts "ROLES CADASTRADO COM SUCESSO!"
+
+############### FIM ###############
+
+
 ############### ADMIN ###############
 
 puts "Cadastrando o Administrador Padrão..."
 
 
-Admin.create(
-  # name: "Administrador Geral",
+adm = Admin.create(
+  name: "Administrador Geral",
   email: "admin@admin.com", 
   password: "1234567890", 
   password_confirmation: "1234567890",
-  # role: 0
   )
+adm.roles << Role.first
 
 
 puts "ADMINISTRADOR CADASTRADO COM SUCESSO!"
+
+############### FIM ###############
+
+############### ADMIN ###############
+
+# puts "Cadastrando o Administrador Padrão..."
+
+
+# Admin.create(
+#   name: "Administrador Geral",
+#   email: "admin@admin.com", 
+#   password: "1234567890", 
+#   password_confirmation: "1234567890",
+#   roles: 
+#   )
+
+
+# puts "ADMINISTRADOR CADASTRADO COM SUCESSO!"
 
 ############### FIM ###############

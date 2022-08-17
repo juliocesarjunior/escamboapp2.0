@@ -12,6 +12,7 @@ gem 'pg', '~> 0.18.4'
 gem 'devise'
 gem 'devise-i18n'
 gem 'jquery-rails'
+gem "rolify"
 gem 'bootstrap_sb_admin_base_v2'
 
 source "https://rails-assets.org" do

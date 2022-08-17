@@ -13,7 +13,9 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Descrição</th>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Role</th>
 						<th>Opção</th>
 					</tr>
 				</thead>
@@ -21,11 +23,14 @@
 					<% @admins.each do |admin| %>
 					<tr>
 						<td><%= admin.id%></td>
+						<td><%= admin.name%></td>
 						<td><%= admin.email%></td>
+						<td><%= admin.roles.first.name rescue '---'%></td>
 						<td style=" width: 150px;">
 							<%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do%>
 							<i class="fa fa-edit"></i>
 							<% end -%>
+							<% if current_admin.has_role? :SuperAdministrador %>
 							<% if current_admin.id != admin.id %>
 							<%= link_to backoffice_admin_path(admin), method: :delete, class: "btn btn-danger btn-circle", data: {confirm: "Você deseja excluir <b>#{admin.email}</b> ?"} do %>
 							<i class="fa fa-minus"></i>
@@ -34,6 +39,7 @@
 							<a class="btn btn-danger btn-circle" disabled = "disabled">
 								<i class="fa fa-minus"></i>
 							</a>
+							<% end -%>
 							<% end -%>
 						</td>
 					</tr>

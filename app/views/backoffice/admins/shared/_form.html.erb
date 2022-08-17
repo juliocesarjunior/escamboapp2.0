@@ -24,10 +24,18 @@
             <div class="col-lg-6">
                 <%= form_for([:backoffice, @admin]) do |f| %>
                 <div class="form-group">
+                    <label>Nome</label>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+                </div>
+                <div class="form-group">
                     <label>Email</label>
                     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
                 </div>
-
+                <div class="form-group">
+                    <label>Role</label>
+                    <%= Role.all.inspect %>
+                    <%= f.select :roles, Role.all.collect { |user| [user.name, user.id] }, class: "form-control" %>
+                </div>
                 <div class="form-group">
                     <label>Senha</label>
                     <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
