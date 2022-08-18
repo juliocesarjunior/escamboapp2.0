@@ -1,0 +1,7 @@
+# config/locales/model/order.zh-cn.yml
+'pt-BR':
+  enums:
+    admin:
+      role:
+        full_access: Acesso Completo
+        restricted_access: Acesso Registro

@@ -33,9 +33,11 @@
                 </div>
                 <div class="form-group">
                     <label>Role</label>
-                    <%= Role.all.inspect %>
-                    <%= f.select :roles, Role.all.collect { |user| [user.name, user.id] }, class: "form-control" %>
+                    <%#= Role.all.inspect %>
+
+                    <%= f.select :role_ids, Role.all.collect {|r| [ r.name, r.id ] }, id: :roles , class: "form-control"%>
                 </div>
+
                 <div class="form-group">
                     <label>Senha</label>
                     <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
