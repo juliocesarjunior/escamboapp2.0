@@ -1,4 +1,12 @@
-//= require bootstrap_sb_admin_base_v2
+//= require jquery3
+//= require jquery_ujs
+//= require libs/popper.js/dist/umd/popper.min
+//= require libs/bootstrap/dist/js/bootstrap.min
+//= require libs/metisMenu/dist/metisMenu.min
+//= require jquery.slimscroll.min
+//= require libs/app.min
+
+
 //= require bootbox
 
 

@@ -14,37 +14,38 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
-<body>
+<body class="fixed-navbar">
 
-  <div id="wrapper">
-    <%= render "layouts/backoffice_shared/nav" %>
   <% flash.each do |key, value| %>
     <% if !value.blank? and !value.nil? %>
-      <div class="alert-time">
-        <div class="alert alert-<%= key=='notice' ? 'success' : key=='alert' ? 'danger' : key %> alert-dismissable pull-rigth">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-          <%= value %>
-        </div>
+      <div class="alert alert-<%= key=='notice' ? 'success' : key=='alert' ? 'danger' : key %> alert-dismissable pull-rigth alert-position alert-time">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= value %>
       </div>
     <% end %>
   <% end %>
 
-    <div id="page-wrapper">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-12">
-            <%= yield %>
+  <div class="page-wrapper">
+    <header class="header">
+      <%= render "layouts/backoffice_shared/nav" %>
+    </header>
+    <nav class="page-sidebar" id="sidebar">
+      <%= render "layouts/backoffice_shared/sidebar" %>
+    </nav>
 
-          </div>
-        </div>
-      </div>
+    <div class="content-wrapper">
+      <%= yield %>
+
+      <footer class="page-footer">
+        <div class="font-13">2018 © <b>AdminCAST</b> - All rights reserved.</div>
+        <a class="px-4" href="http://themeforest.net/item/adminca-responsive-bootstrap-4-3-angular-4-admin-dashboard-template/20912589" target="_blank">BUY PREMIUM</a>
+        <div class="to-top"><i class="fa fa-angle-double-up"></i></div>
+      </footer>
     </div>
   </div>
 

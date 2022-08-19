@@ -1,28 +1,26 @@
-
-<h1 class="page-header">Administrador</h1>
-<% if @admin.errors.any? %>
-<div class="alert alert-danger alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-
-    <ul>
-        <% @admin.errors.full_messages.each do |message|  %>
-        <li><%= message %></li>
-
-        <% end -%>
-    </ul>
-
-
+<div class="page-heading">
+    <h1 class="page-title">Administrador</h1>
 </div>
 
+<% if @admin.errors.any? %>
+<div class="alert alert-danger alert-dismissable fade show">
+    <button class="close" data-dismiss="alert" aria-label="Close">×</button>
+    <% @admin.errors.full_messages.each do |message|  %>
+    <%= message %><br>
+    <% end -%>
+
+</div>
 <% end -%>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <%= action %>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-6">
-                <%= form_for([:backoffice, @admin]) do |f| %>
+
+
+<div class="page-content fade-in-up">
+    <div class="ibox">
+        <div class="ibox-head">
+            <div class="ibox-title"><%= action %></div>
+        </div>
+        <div class="ibox-body" style="">
+            <%= form_for([:backoffice, @admin]) do |f| %>
+            <div class="">
                 <div class="form-group">
                     <label>Nome</label>
                     <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
@@ -31,11 +29,12 @@
                     <label>Email</label>
                     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
                 </div>
+
                 <div class="form-group">
                     <label>Role</label>
-                    <%#= Role.all.inspect %>
-
-                    <%= f.select :role_ids, Role.all.collect {|r| [ r.name, r.id ] }, id: :roles , class: "form-control"%>
+                    <%#= f.collection_check_boxes :role_ids, Role.all, :id, :name,
+                    {:item_wrapper_class => 'ui-checkbox'} %>
+                    <%= f.select :role_ids, options_for_select(Role.all.map{|role| [role.name, role.id]}, @admin.role_ids), {},  {:multiple => true, inlcude_blank: false, class: "form-control input-sm selectpicker"} %>
                 </div>
 
                 <div class="form-group">
@@ -46,11 +45,9 @@
                     <label>Confirmação da Senha</label>
                     <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da Senha" %>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-default">Salvar</button>
                 <% end -%>
             </div>
         </div>
-        <!-- /.row (nested) -->
     </div>
-    <!-- /.panel-body -->
 </div>

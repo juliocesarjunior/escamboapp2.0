@@ -1,0 +1,79 @@
+<!-- START SIDEBAR-->
+<div id="sidebar-collapse">
+<div class="admin-block d-flex">
+    <!-- <div>
+        <img src="/assets/images/admin-avatar.png" width="45px" />
+    </div> -->
+    <div class="admin-info">
+        <div class="font-strong"><%= current_admin.name %></div><small><%= current_admin.roles.first.name rescue '---' %></small></div>
+    </div>
+    <ul class="side-menu metismenu">
+        <li class="<%= controller_name=="dashboard" ? 'active' : '' %>">
+          <%= link_to backoffice_dashboard_path do%>
+          <i class="sidebar-item-icon fa fa-th-large"></i> 
+          <span class="nav-label">Dashboard</span>
+          <% end -%>
+      </li>
+
+      <li class="<%= controller_name=="admins" ? 'active' : '' %>">
+        <a href="javascript:;"><i class="sidebar-item-icon fa fa-users"></i>
+            <span class="nav-label">Administradores</span><i class="fa fa-angle-left arrow"></i></a>
+            <ul class="nav-2-level collapse">
+                <li><%= link_to "Listar", backoffice_admins_path%></li>
+                <li><%= link_to "Inserir", new_backoffice_admin_path %></li>
+
+            </ul>
+        </li>
+        <li class="<%= controller_name=="categories" ? 'active' : '' %>">
+            <a href="javascript:;"><i class="sidebar-item-icon fa fa-th-list"></i>
+                <span class="nav-label">Categorias</span><i class="fa fa-angle-left arrow"></i></a>
+                <ul class="nav-2-level collapse">
+                    <li><%= link_to "Listar", backoffice_categories_path%></li>
+                    <li><%= link_to "Inserir", new_backoffice_category_path%></li>
+
+                </ul>
+            </li>
+
+
+            <!-- <li class="heading">FEATURES</li>
+            <li>
+                <a href="javascript:;"><i class="sidebar-item-icon fa fa-bookmark"></i>
+                    <span class="nav-label">Basic UI</span><i class="fa fa-angle-left arrow"></i></a>
+                    <ul class="nav-2-level collapse">
+                        <li>
+                            <a href="colors.html">Colors</a>
+                        </li>
+                        <li>
+                            <a href="typography.html">Typography</a>
+                        </li>
+                        <li>
+                            <a href="panels.html">Panels</a>
+                        </li>
+                        <li>
+                            <a href="buttons.html">Buttons</a>
+                        </li>
+                        <li>
+                            <a href="tabs.html">Tabs</a>
+                        </li>
+                        <li>
+                            <a href="alerts_tooltips.html">Alerts &amp; Tooltips</a>
+                        </li>
+                        <li>
+                            <a href="badges_progress.html">Badges &amp; Progress</a>
+                        </li>
+                        <li>
+                            <a href="lists.html">List</a>
+                        </li>
+                        <li>
+                            <a href="cards.html">Card</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+</div>
+<!-- END SIDEBAR-->

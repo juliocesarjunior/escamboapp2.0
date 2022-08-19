@@ -14,25 +14,22 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'backoffice-login', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
-<body>
+<body class="bg-silver-300 has-animation">
   <% flash.each do |key, value| %>
-  <% if !value.blank? and !value.nil? %>
-  <div class="alert alert-<%= key=='notice' ? 'success' : key=='alert' ? 'danger' : key %>">
-    <%= value %>
-  </div>
-  <% end %>
+    <% if !value.blank? and !value.nil? %>
+      <div class="alert alert-<%= key=='notice' ? 'success' : key=='alert' ? 'danger' : key %> alert-dismissable alert-time">
+        <%= value %>
+      </div>
+    <% end %>
   <% end %>
 
-  <div>
-    <%= yield %>
-  </div>
+      <%= yield %>
+
 
 </body>
 

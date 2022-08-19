@@ -21,6 +21,10 @@ source "https://rails-assets.org" do
   gem 'rails-assets-bootbox'
 end
 
+#FRONT
+gem "font-awesome-rails"
+gem 'jquery-slimscroll-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

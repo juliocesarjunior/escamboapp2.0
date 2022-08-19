@@ -1,37 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <div class="login-panel panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Please Sign In</h3>
-        </div>
-        <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name, role: "form")) do |f| %>
-          <fieldset>
-            <div class="form-group">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "E-mail", type: "email"%>
-            </div>
-            <div class="form-group">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password", type:"password"%>
-
-            </div>
-            <% if devise_mapping.rememberable? %>
-            <div class="checkbox">
-              <label>
-                <%= f.check_box :remember_me %>Remember Me
-              </label>
-            </div>
-            <% end %>
-            <%= render "admins/shared/links" %>
-            <!-- Change this to a button or input when using this as a form -->
-            <%= f.submit "Log in", class: "btn btn-lg btn-success btn-block" %>
-
-          </fieldset>
-          <% end %>
-        </div>
-      </div>
+  <div class="content">
+    <div class="brand">
+      <a class="link" href="/">ESCAMBOAPP</a>
     </div>
-  </div>
-</div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name, role: "form")) do |f| %>
+    <h2 class="login-title">Log in</h2>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "E-mail", type: "email"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password", type:"password"%>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+    <div class="form-group d-flex justify-content-between">
+      <label >
+        <%= f.check_box :remember_me, class: "ui-checkbox ui-checkbox-info" %>Remember Me
+      </label>
+    </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.submit "Log in", class: "btn btn-info btn-block" %>
+    </div>
+
+    <div class="text-center social-auth m-b-20">
+      <a class="btn btn-social-icon btn-twitter m-r-5" href="javascript:;"><i class="fa fa-twitter"></i></a>
+      <a class="btn btn-social-icon btn-facebook m-r-5" href="javascript:;"><i class="fa fa-facebook"></i></a>
+      <a class="btn btn-social-icon btn-google m-r-5" href="javascript:;"><i class="fa fa-google-plus"></i></a>
+      <a class="btn btn-social-icon btn-linkedin m-r-5" href="javascript:;"><i class="fa fa-linkedin"></i></a>
+      <a class="btn btn-social-icon btn-vk" href="javascript:;"><i class="fa fa-vk"></i></a>
+    </div>
+
+    <div class="text-center">Não tem uma conta?
+      <a class="color-blue">
+        <%= render "admins/shared/links" %>
+
+      </div>
+
+      <% end %>
+    </div>
+
+
+

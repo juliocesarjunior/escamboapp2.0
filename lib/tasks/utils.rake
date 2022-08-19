@@ -12,7 +12,7 @@ namespace :utils do
         password: "1234567890", 
         password_confirmation: "1234567890",
         )
-       adm.roles << Role.find_by_name("Administrador")
+       adm.roles << Role.find_by_name("Admin")
     end
 
     puts "ADMINISTRADORES CADASTRADO COM SUCESSO!"
