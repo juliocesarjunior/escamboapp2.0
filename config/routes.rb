@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
-    get 'dashboard', to: 'dashboard#index'
+    root 'dashboard#index', to: 'dashboard'
+    #root 'dashboard#index', as: :authenticated_root
   end
 
   namespace :site do
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
   devise_for :admins
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "site/home#index" 
+  root to: "site/home#index"
+  
+  #get '/', to: redirect('site/home')
+
 
 end

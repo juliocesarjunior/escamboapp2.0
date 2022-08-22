@@ -23,7 +23,7 @@
             <div class="">
                 <div class="form-group">
                     <label>Nome</label>
-                    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+                    <%= f.text_field :name, class: "form-control", placeholder: "Nome" %>
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -33,21 +33,23 @@
                 <div class="form-group">
                     <label>Role</label>
                     <%#= f.collection_check_boxes :role_ids, Role.all, :id, :name,
-                    {:item_wrapper_class => 'ui-checkbox'} %>
-                    <%= f.select :role_ids, options_for_select(Role.all.map{|role| [role.name, role.id]}, @admin.role_ids), {},  {:multiple => true, inlcude_blank: false, class: "form-control input-sm selectpicker"} %>
-                </div>
+                        {:item_wrapper_class => 'ui-checkbox'} %>
+                        <%= f.select :role_ids, options_for_select(Role.all.map{|role| [role.name, role.id]}, @admin.role_ids), {},  {:multiple => true, inlcude_blank: false, class: "form-control input-sm selectpicker"} %>
 
-                <div class="form-group">
-                    <label>Senha</label>
-                    <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
+                        <%= f.collection_radio_buttons :role_ids, Role.all, :id, :name, include_hidden: false %>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <%= f.password_field :password, class: "form-control", placeholder: "Senha" %>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirmação da Senha</label>
+                        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da Senha" %>
+                    </div>
+                    <button type="submit" class="btn btn-default">Salvar</button>
+                    <% end -%>
                 </div>
-                <div class="form-group">
-                    <label>Confirmação da Senha</label>
-                    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmação da Senha" %>
-                </div>
-                <button type="submit" class="btn btn-default">Salvar</button>
-                <% end -%>
             </div>
         </div>
     </div>
-</div>

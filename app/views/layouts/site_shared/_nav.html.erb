@@ -30,9 +30,10 @@
 					<% if admin_signed_in? %>
 					<%= link_to "dashboard", backoffice_path, class: "" %> 
 					<% else %>
-					<%= link_to "Log In", new_admin_session_path, class: "" %> 
+					<a href="/backoffice">Log In</a>
 					<% end -%>
 				</li>
+
 			</ul>
 
 		</div>

@@ -34,9 +34,9 @@ puts "CATEGORIAS CADASTRADOS COM SUCESSO!"
 puts "Cadastrando o ROLES Padrão..."
 
 
-roles = [ "SuperAdmin" ,
+roles = [ "Super Admin" ,
                "Admin",
-               "NewUser"  ]
+               "New User"  ]
 
 roles.each do |role|
   Role.find_or_create_by(name: role)
